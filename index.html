@@ -1,206 +1,289 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Pola & Practice</title>
+
+<!-- Google Fonts for a sleek look -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
 
 <style>
 * {
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
+/* Body with a soft gradient background */
 body {
-    margin: 0;
-    background: #f4f6f9;
-    color: #222;
+  background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+  color: #222;
+  line-height: 1.6;
 }
 
-/* HERO */
+/* HERO section with background image and overlay */
 .hero {
-    height: 90vh;
-    background: url("https://images.unsplash.com/photo-1528605248644-14dd04022da1") center/cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+  height: 90vh;
+  background: url("https://images.unsplash.com/photo-1528605248644-14dd04022da1") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 20px;
+  overflow: hidden;
 }
 
+/* Overlay for better contrast and rounded corners */
 .overlay {
-    background: rgba(0,0,0,0.65);
-    padding: 30px;
-    border-radius: 20px;
-    color: white;
-    max-width: 90%;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 40px;
+  border-radius: 20px;
+  max-width: 90%;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  animation: fadeIn 1s ease;
 }
 
+/* Main header styles */
 h1 {
-    font-size: 2.8em;
-    margin-bottom: 10px;
+  font-size: 3em;
+  margin-bottom: 10px;
+  color: #00c3ff;
+  text-shadow: 0 0 8px #00c3ff, 0 0 15px #00c3ff;
 }
 
-.highlight {
-    color: #00e0ff;
+h1 .highlight {
+  color: #ff6f61;
+  font-weight: bold;
 }
 
-/* CTA */
-.cta {
-    margin-top: 20px;
-    padding: 15px 25px;
-    background: #00c2ff;
-    border: none;
-    border-radius: 10px;
-    color: white;
-    font-size: 1.2em;
-    cursor: pointer;
+/* Subtitle and countdown styles */
+p {
+  font-size: 1.2em;
+  margin: 10px 0 20px;
+  color: #fff;
 }
 
-/* COUNTDOWN */
 .countdown {
-    margin-top: 15px;
-    font-size: 1.2em;
+  margin-top: 15px;
+  font-size: 1.4em;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  box-shadow: inset 0 0 10px #fff;
+  color: #fff;
+  font-weight: bold;
 }
 
-/* SECTION */
+/* CTA Button styles */
+.cta {
+  margin-top: 20px;
+  padding: 15px 30px;
+  background: #00c3ff;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.4em;
+  cursor: pointer;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 195, 255, 0.3);
+  transition: all 0.3s ease;
+}
+.cta:hover {
+  background: #009bbf;
+  transform: scale(1.05);
+}
+
+/* Section styles for benefits and form */
 .section {
-    padding: 40px 20px;
-    max-width: 500px;
-    margin: auto;
-    text-align: center;
+  padding: 50px 20px;
+  background: #fff;
+  margin: -30px auto 40px;
+  max-width: 600px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  text-align: center;
+  animation: fadeIn 1s ease;
 }
 
-.card {
-    background: white;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+/* Heading styles */
+h2 {
+  font-size: 2.4em;
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: 700;
 }
 
-/* BENEFITS */
+/* Benefits list styles */
 .benefits {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 30px;
 }
 
 .benefit {
-    background: #eef7ff;
-    padding: 14px;
-    border-radius: 10px;
+  background: #f0f8ff;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-/* FORM */
+/* Form styles */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 input, select {
-    width: 100%;
-    padding: 14px;
-    margin: 10px 0;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    font-size: 1em;
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1em;
+  outline: none;
+  transition: box-shadow 0.2s;
 }
-
+input:focus, select:focus {
+  box-shadow: 0 0 10px #00c3ff;
+}
 button {
-    width: 100%;
-    padding: 15px;
-    background: #00c2ff;
-    border: none;
-    border-radius: 10px;
-    color: white;
-    font-size: 1.2em;
-    cursor: pointer;
+  padding: 15px;
+  border-radius: 25px;
+  border: none;
+  background: #00c3ff;
+  color: #fff;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+button:hover {
+  background: #009bbf;
+  transform: scale(1.05);
 }
 
+/* Note styling */
 .note {
-    font-size: 0.9em;
-    color: #666;
-    margin-top: 10px;
+  margin-top: 15px;
+  font-size: 1em;
+  color: #555;
+}
+
+/* Animation for fadeIn */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 </style>
 </head>
-
 <body>
 
 <!-- HERO -->
 <div class="hero">
-    <div class="overlay">
-        <h1>🍺 Pola & Practice</h1>
-        <p>Deja de estudiar… <span class="highlight">empieza a hablar inglés</span></p>
-        <p><strong>Lunes • 6:00 PM</strong></p>
-
-        <div class="countdown" id="countdown"></div>
-
-        <a href="#form"><button class="cta">Unirme ahora 🔥</button></a>
-    </div>
+  <div class="overlay">
+    <h1>🍺 <span class="highlight">Pola & Practice</span></h1>
+    <p>Deja de estudiar… <strong>empieza a hablar inglés</strong></p>
+    <p><strong>Lunes • 6:00 PM</strong></p>
+    <div class="countdown" id="countdown"></div>
+    <a href="#form" style="text-decoration: none;"><button class="cta">Unirme ahora 🔥</button></a>
+  </div>
 </div>
 
-<!-- VALUE -->
+<!-- BENEFITS -->
 <div class="section">
-    <h2>¿Por qué funciona?</h2>
-
-    <div class="benefits">
-        <div class="benefit">🗣️ Conversaciones reales (no clases aburridas)</div>
-        <div class="benefit">🍺 Ambiente relajado y social</div>
-        <div class="benefit">👥 Conoce gente nueva cada semana</div>
-        <div class="benefit">🚀 Mejora tu confianza en 21 días</div>
-    </div>
+  <h2>¿Por qué funciona?</h2>
+  <div class="benefits">
+    <div class="benefit">🗣️ Conversaciones reales (no clases aburridas)</div>
+    <div class="benefit">🍺 Ambiente relajado y social</div>
+    <div class="benefit">👥 Conoce gente nueva cada semana</div>
+    <div class="benefit">🚀 Mejora tu confianza en 21 días</div>
+  </div>
 </div>
 
 <!-- FORM -->
-<div class="section card" id="form">
-
-    <h2>Reserva tu lugar</h2>
-
-    <form action="YOUR_WEBHOOK_URL" method="POST">
-
-        <input type="text" name="nombre" placeholder="Nombre completo" required>
-        <input type="email" name="email" placeholder="Correo electrónico" required>
-        <input type="tel" name="telefono" placeholder="WhatsApp" required>
-
-        <select name="nivel" required>
-            <option value="">Nivel de inglés</option>
-            <option>Básico</option>
-            <option>Intermedio</option>
-            <option>Avanzado</option>
-        </select>
-
-        <select name="objetivo">
-            <option value="">¿Qué quieres mejorar?</option>
-            <option>Fluidez</option>
-            <option>Confianza</option>
-            <option>Pronunciación</option>
-            <option>Todo</option>
-        </select>
-
-        <button type="submit">Entrar al círculo 🔐</button>
-
-    </form>
-
-    <p class="note">
-        Compra una bebida 🍺 y participa<br>
-        📍 Ubicación enviada después del registro
-    </p>
-
+<div class="section" id="form">
+  <h2>Reserva tu lugar</h2>
+  <form id="reservationForm" action="YOUR_WEBHOOK_URL" method="POST">
+    <input type="text" name="nombre" placeholder="Nombre completo" required />
+    <input type="email" name="email" placeholder="Correo electrónico" required />
+    <input type="tel" name="telefono" placeholder="WhatsApp" required />
+    <select name="nivel" required>
+      <option value="">Nivel de inglés</option>
+      <option>Básico</option>
+      <option>Intermedio</option>
+      <option>Avanzado</option>
+    </select>
+    <select name="objetivo">
+      <option value="">¿Qué quieres mejorar?</option>
+      <option>Fluidez</option>
+      <option>Confianza</option>
+      <option>Pronunciación</option>
+      <option>Todo</option>
+    </select>
+    <button type="submit">Entrar al círculo 🔐</button>
+  </form>
+  <p class="note">
+    Compra una bebida 🍺 y participa<br>
+    📍 Ubicación enviada después del registro
+  </p>
 </div>
 
 <script>
+// Countdown Timer
 const nextEvent = new Date("April 20, 2026 18:00:00").getTime();
-
 setInterval(() => {
-    const now = new Date().getTime();
-    const diff = nextEvent - now;
-
-    const d = Math.floor(diff / (1000*60*60*24));
-    const h = Math.floor((diff % (1000*60*60*24))/(1000*60*60));
-    const m = Math.floor((diff % (1000*60*60))/(1000*60));
-    const s = Math.floor((diff % (1000*60))/1000);
-
-    document.getElementById("countdown").innerHTML =
-        `Empieza en: ${d}d ${h}h ${m}m ${s}s`;
+  const now = new Date().getTime();
+  const diff = nextEvent - now;
+  const d = Math.floor(diff / (1000*60*60*24));
+  const h = Math.floor((diff % (1000*60*60*24))/(1000*60*60));
+  const m = Math.floor((diff % (1000*60*60))/(1000*60));
+  const s = Math.floor((diff % (1000*60))/1000);
+  document.getElementById("countdown").innerHTML =
+    `Empieza en: ${d}d ${h}h ${m}m ${s}s`;
 }, 1000);
+
+// Webhook URL (replace with your actual webhook URL)
+const webhookURL = "YOUR_WEBHOOK_URL";
+
+// Form handler
+document.getElementById('reservationForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const nombre = e.target.nombre.value.trim();
+  const email = e.target.email.value.trim();
+  const telefono = e.target.telefono.value.trim();
+
+  if (!nombre || !email || !telefono) {
+    alert('Por favor, complete todos los campos');
+    return;
+  }
+
+  const data = { nombre, email, telefono };
+
+  fetch(webhookURL, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(data)
+  }).then(res => {
+    if(res.ok) {
+      alert('¡Reserva enviada! Abriendo WhatsApp...');
+      // Limpiar número para link
+      const cleanNumber = telefono.replace(/\D/g,'');
+      const message = encodeURIComponent(`Hola, soy ${nombre}. Quiero reservar mi lugar.`);
+      const whatsappLink = `https://wa.me/${cleanNumber}?text=${message}`;
+      window.open(whatsappLink, '_blank');
+      e.target.reset();
+    } else {
+      alert('Error al enviar la reserva.');
+    }
+  }).catch(() => {
+    alert('Error en la red.');
+  });
+});
 </script>
 
 </body>
 </html>
-```
