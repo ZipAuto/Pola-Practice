@@ -1,0 +1,206 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pola & Practice</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    background: #f4f6f9;
+    color: #222;
+}
+
+/* HERO */
+.hero {
+    height: 90vh;
+    background: url("https://images.unsplash.com/photo-1528605248644-14dd04022da1") center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.overlay {
+    background: rgba(0,0,0,0.65);
+    padding: 30px;
+    border-radius: 20px;
+    color: white;
+    max-width: 90%;
+}
+
+h1 {
+    font-size: 2.8em;
+    margin-bottom: 10px;
+}
+
+.highlight {
+    color: #00e0ff;
+}
+
+/* CTA */
+.cta {
+    margin-top: 20px;
+    padding: 15px 25px;
+    background: #00c2ff;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+/* COUNTDOWN */
+.countdown {
+    margin-top: 15px;
+    font-size: 1.2em;
+}
+
+/* SECTION */
+.section {
+    padding: 40px 20px;
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* BENEFITS */
+.benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.benefit {
+    background: #eef7ff;
+    padding: 14px;
+    border-radius: 10px;
+}
+
+/* FORM */
+input, select {
+    width: 100%;
+    padding: 14px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 1em;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background: #00c2ff;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.note {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+    <div class="overlay">
+        <h1>🍺 Pola & Practice</h1>
+        <p>Deja de estudiar… <span class="highlight">empieza a hablar inglés</span></p>
+        <p><strong>Lunes • 6:00 PM</strong></p>
+
+        <div class="countdown" id="countdown"></div>
+
+        <a href="#form"><button class="cta">Unirme ahora 🔥</button></a>
+    </div>
+</div>
+
+<!-- VALUE -->
+<div class="section">
+    <h2>¿Por qué funciona?</h2>
+
+    <div class="benefits">
+        <div class="benefit">🗣️ Conversaciones reales (no clases aburridas)</div>
+        <div class="benefit">🍺 Ambiente relajado y social</div>
+        <div class="benefit">👥 Conoce gente nueva cada semana</div>
+        <div class="benefit">🚀 Mejora tu confianza en 21 días</div>
+    </div>
+</div>
+
+<!-- FORM -->
+<div class="section card" id="form">
+
+    <h2>Reserva tu lugar</h2>
+
+    <form action="YOUR_WEBHOOK_URL" method="POST">
+
+        <input type="text" name="nombre" placeholder="Nombre completo" required>
+        <input type="email" name="email" placeholder="Correo electrónico" required>
+        <input type="tel" name="telefono" placeholder="WhatsApp" required>
+
+        <select name="nivel" required>
+            <option value="">Nivel de inglés</option>
+            <option>Básico</option>
+            <option>Intermedio</option>
+            <option>Avanzado</option>
+        </select>
+
+        <select name="objetivo">
+            <option value="">¿Qué quieres mejorar?</option>
+            <option>Fluidez</option>
+            <option>Confianza</option>
+            <option>Pronunciación</option>
+            <option>Todo</option>
+        </select>
+
+        <button type="submit">Entrar al círculo 🔐</button>
+
+    </form>
+
+    <p class="note">
+        Compra una bebida 🍺 y participa<br>
+        📍 Ubicación enviada después del registro
+    </p>
+
+</div>
+
+<script>
+const nextEvent = new Date("April 20, 2026 18:00:00").getTime();
+
+setInterval(() => {
+    const now = new Date().getTime();
+    const diff = nextEvent - now;
+
+    const d = Math.floor(diff / (1000*60*60*24));
+    const h = Math.floor((diff % (1000*60*60*24))/(1000*60*60));
+    const m = Math.floor((diff % (1000*60*60))/(1000*60));
+    const s = Math.floor((diff % (1000*60))/1000);
+
+    document.getElementById("countdown").innerHTML =
+        `Empieza en: ${d}d ${h}h ${m}m ${s}s`;
+}, 1000);
+</script>
+
+</body>
+</html>
+```
